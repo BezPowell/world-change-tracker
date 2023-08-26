@@ -26,3 +26,12 @@ nav[aria-label="primary"] {
         }
     }
 }
+
+nav[aria-label="secondary"] {
+    grid-column: -1;
+    text-align: right;
+
+    ul {
+        margin-bottom: 0;
+    }
+}
