@@ -1,0 +1,39 @@
+/*
+* Page Layout
+*/
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+
+  background-color: var(--background-mid);
+}
+
+body>header,
+body>footer {
+  padding: 0 $base-line-height;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr min(#{$ideal-line-width}, 100% - #{$base-line-height * 2}) 1fr;
+  flex-grow: 1;
+  margin-block-end: $base-line-height;
+  row-gap: $base-line-height;
+}
+
+main>article,
+main>article>header,
+main section,
+main form {
+  display: contents;
+}
+
+main * {
+  margin: 0;
+  grid-column: 2 / span 1;
+}
+
+main .full-bleed {
+  grid-column: 1 / span all;
+}

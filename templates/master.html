@@ -1,0 +1,30 @@
+{% import "macros/macros.html" as macros %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="{{ get_url(path="css/main.css", cachebust=true) }}" media="screen" />
+
+    {%- block meta %}{% endblock meta -%}
+</head>
+
+<body>
+    <a href="#content" class="screen-reader-text">Skip to Content</a>
+    <header>
+        <a href="/" class="site-logo">
+            <img src="{{ get_url(path="images/logo.svg", cachebust=true) }}" alt="" width="64" height="64" />
+            <span>
+                {{ config.title }}
+                <sup aria-label="(Work in Progress)">WIP</sup>
+            </span>
+        </a>
+        {% include "includes/nav.html" %}
+    </header>
+    {% block layout %}{% endblock layout %}
+    {% include "includes/footer.html" %}
+</body>
+
+</html>

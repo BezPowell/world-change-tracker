@@ -1,0 +1,28 @@
+nav>ul {
+    display: flex;
+    flex-flow: row;
+    margin: 0 0 $base-line-height / 2;
+    padding: $base-line-height / 2 0;
+    list-style-type: none;
+    gap: $base-line-height / 4;
+}
+
+nav[aria-label="primary"] {
+    @include type-setting(1);
+
+    a {
+        padding: calc($base-line-height / 4 - 2px);
+        border-radius: 5px;
+        color: var(--background-mid);
+        background-color: var(--main-normal);
+        text-decoration: none;
+        border: 2px solid var(--main-normal);
+        transition: all 0.2s;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            color: var(--main-normal);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{% set sources = load_data(path="data/generator/config.json") %}
+<ol>
+    {% for source, value in sources.sources %}
+    {%- set attribution = load_data(path="data/sources/" ~ source ~ ".html") -%}
+    <li id="f{{ loop.index }}">
+        {{ attribution | safe }}
+    </li>
+    {% endfor %}
+</ol>

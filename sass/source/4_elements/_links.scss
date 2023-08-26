@@ -1,0 +1,13 @@
+a {
+  color: var(--main-normal);
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--text-heavy);
+  }
+
+  &[aria-current="page"] {
+    font-weight: bold;
+  }
+}

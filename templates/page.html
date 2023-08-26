@@ -1,0 +1,9 @@
+{% extends "layout/full-width.html" %}
+{% block meta %}
+<title>{{ page.title }} | {{ config.title }}</title>
+<meta name="description" content="{{ page.description }}">
+{% endblock meta %}
+{% block content %}
+<h1>{{ page.title }}</h1>
+{{ page.content | safe }}
+{% endblock content %}

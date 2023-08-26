@@ -1,0 +1,19 @@
+{% set root = get_section(path="_index.md") %}
+<nav aria-label="primary">
+    <ul>
+        {# generate links for sections #}
+        {%- for link in root.subsections %}
+        {%- set item = get_section(path=link, metadata_only=true) %}
+        <li>
+            {{- macros::link(url=item.permalink, text=item.title) -}}
+        </li>
+        {%- endfor %}
+
+        {# generate links for pages #}
+        {%- for item in root.pages | filter(attribute="extra.primary_navigation", value=true) %}
+        <li>
+            {{- macros::link(url=item.permalink, text=item.title) -}}
+        </li>
+        {%- endfor %}
+    </ul>
+</nav>

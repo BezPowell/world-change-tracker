@@ -1,0 +1,73 @@
+html {
+  @include fluid-typography($fluid-type);
+}
+
+body {
+  font-family: $font_family_body;
+  color: var(--text-normal);
+  line-height: var(--base-line-height);
+}
+
+h1 {
+  @include type-setting(5);
+}
+
+h2 {
+  @include type-setting(4);
+}
+
+h3 {
+  @include type-setting(3);
+}
+
+h4 {
+  @include type-setting(2);
+}
+
+h5 {
+  @include type-setting(1);
+}
+
+h6,
+p {
+  @include type-setting(0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: break-word;
+}
+
+main {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: -$base-line-height
+  }
+}
+
+small {
+  @include type-setting(-1);
+}
+
+pre {
+  overflow-x: auto;
+  padding: $base-line-height / 2;
+}
+
+details summary {
+  margin-bottom: $base-line-height / 2;
+  cursor: pointer;
+}
+
+details p {
+  margin-bottom: $base-line-height;
+}

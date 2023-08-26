@@ -1,0 +1,52 @@
+@use "sass:map";
+
+@mixin fontFace ($fontFamily, $fonts, $src: '../fonts/', $variable: false, $display: auto) {
+
+    //$fonts is a 2 dimensional array so we need to first get the weights...
+    @each $weight,
+    $variants in $fonts {
+
+        //...and then the filenames for each style of the weight.
+        @each $style,
+        $path in $variants {
+            $filename: $src +$path;
+
+            @font-face {
+                font-family: $fontFamily;
+
+                @if $variable {
+                    src: url($filename + '.woff2') format('woff2 supports variations'),
+                        url($filename + '.woff2') format('woff2-variations');
+                }
+
+                @else {
+                    src: url($filename + '.woff2') format('woff2'),
+                        url($filename + '.woff') format('woff'),
+                        url($filename + '.ttf') format('truetype');
+                }
+
+                font-style: $style;
+                font-weight: $weight;
+                font-display: $display;
+            }
+        }
+    }
+}
+
+@mixin type-setting($level: 0) {
+    font-size: map.get(map.get($type-scale, $level), "size");
+    line-height: map.get(map.get($type-scale, $level), "line-height");
+}
+
+@mixin fluid-typography($sizes) {
+    $maxFontSize: map.get(map.get($sizes, "font"), "max");
+    $minFontSize: map.get(map.get($sizes, "font"), "min");
+    $maxWidth: map.get(map.get($sizes, "viewport"), "max");
+    $minWidth: map.get(map.get($sizes, "viewport"), "min");
+
+    $slope: ($maxFontSize - $minFontSize) / ($maxWidth - $minWidth);
+    $yAxisIntersection: -$minWidth * $slope +$minFontSize;
+    $slope: #{$slope * 100}vw;
+
+    font-size: clamp(#{$minFontSize}, #{$yAxisIntersection} + #{$slope}, #{$maxFontSize});
+}

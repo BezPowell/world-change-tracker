@@ -1,0 +1,13 @@
+body>footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+
+  padding: $base-line-height;
+  border-top: 1px solid;
+
+  @media screen and (min-width: $breakpoint-large) {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: normal;
+  }
+}

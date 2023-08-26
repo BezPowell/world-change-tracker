@@ -1,0 +1,11 @@
+<form action="/year" method="get">
+    <div>
+        <label for="year">What year were you born in?</label>
+        <input type="number" name="year" id="year" min="{{ config.extra.start_year }}" max="{{ config.extra.end_year }}"
+            placeholder="{{ config.extra.start_year }}" aria-describedby="year-help" required />
+        <p id="year-help">{{ config.extra.start_year }} is the earliest year for which we have data available, so has
+            been set as the minimum allowed value.</p>
+    </div>
+
+    <input type="submit" value="Calculate Changes">
+</form>

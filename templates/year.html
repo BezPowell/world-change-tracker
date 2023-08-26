@@ -1,0 +1,67 @@
+{% extends "layout/full-width.html" %}
+{% block meta %}
+<title>{{ page.title }} | {{ config.title }}</title>
+<meta name="description"
+    content="Showing changes to global population, atmospheric pollution, and biodiversity since {{ page.title  }}." />
+{% endblock meta %}
+{% block content %}
+<h1>Since you were born in <span>{{ page.title }}</span></h1>
+<section>
+    <h2>Population</h2>
+    <p>
+        The world population has {{ macros::change(base_year=page.extra.year, source=page.extra.population, precision=2,
+        factor=0.000000001, unit=" billion") }}<a href="#f1"><sup>1</sup></a>.
+        In more accessible terms, for every 10 people alive when you were born, there are now {{ 10 * (1 +
+        (page.extra.population.percent / 100)) | round(method="floor") | int }}.
+    </p>
+    <details>
+        <summary>More population statistics</summary>
+        <p>
+            During the same time period life expectancy at birth has {{ macros::change(base_year=page.extra.year,
+            source=page.extra.life_expectancy, precision=0) }}.
+            <br />
+            The rate of infant mortality (the number of deaths
+            per 1,000 births) has {{
+            macros::change(base_year=page.extra.year, source=page.extra.infant_mortality, precision=0) }}<a
+                href="#f1"><sup>1</sup></a>.
+        </p>
+        <p>
+            The median age has {{ macros::change(base_year=page.extra.year, source=page.extra.median_age,
+            precision=0) }}<a href="#f1"><sup>1</sup></a>. This is the age at which you could split the population
+            evenly, with approximately the same number of people older than the threshold than there are those who are
+            younger.
+        </p>
+    </details>
+</section>
+<section>
+    <h2>Atmosphere</h2>
+    <p>
+        Levels of atmospheric carbon have {{ macros::change(base_year=page.extra.year, source=page.extra.carbon,
+        precision=0, unit="ppm") }}<a href="#f2"><sup>2</sup></a>.
+    </p>
+    <p>
+        The global temperature anomaly (compared to the 1901-2000 average) has {{
+        macros::change(base_year=page.extra.year, source=page.extra.temperature, precision=2, unit="°C", absolute=true)
+        }}<a href="#f3"><sup>3</sup></a>.
+    </p>
+</section>
+<section>
+    <h2>Biodiversity</h2>
+    <p>
+        The Living Planet Index has {{ macros::change(base_year=page.extra.year, source=page.extra.living_planet,
+        precision=2) }}<a href="#f4"><sup>4</sup></a>.
+    </p>
+    <p>
+        The IUCN Red List Index of species survival has {{ macros::change(base_year=page.extra.year,
+        source=page.extra.red_list_index,
+        precision=2) }}<a href="#f5"><sup>5</sup></a>. The index is derived from the IUCN Red List of Threatened
+        Species; a value of 1.0 equates to all species qualifying as Least
+        Concern (i.e., not expected to become Extinct in the near future), whereas a value of 0 equates to all
+        species having gone Extinct.
+    </p>
+</section>
+<section>
+    <h2>Sources</h2>
+    {% include "includes/sources.html" %}
+</section>
+{% endblock content %}

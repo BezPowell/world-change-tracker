@@ -1,0 +1,10 @@
+:root {
+  @include print_palette("dark");
+
+  --base-line-height: #{$base-line-height};
+  --ideal-line-width: #{$ideal-line-width};
+}
+
+html {
+  scroll-behavior: smooth;
+}

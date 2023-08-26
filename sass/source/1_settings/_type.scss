@@ -1,0 +1,28 @@
+//Consistent spacing values for elements
+$base-line-height: 1.5rem;
+$ideal-line-width: 60ch;
+$narrow-line-width: 50ch;
+
+$font-family-body: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$type-scale: (
+    -1: ("size": 0.75rem, "line-height": 1.5rem),
+    0: ("size": 1rem, "line-height": 1.5rem),
+    1: ("size": 1.125rem, "line-height": 1.5rem),
+    2: ("size": 1.25rem, "line-height": 1.5rem),
+    3: ("size": 1.5rem, "line-height": 1.5rem),
+    4: ("size": 1.75rem, "line-height": 3rem),
+    5: ("size": 2rem, "line-height": 3rem)
+);
+
+// Used for fluid typography
+$fluid-type: (
+    "font": (
+        "min": 18px,
+        "max": 28px
+    ),
+    "viewport": (
+        "min": 320px,
+        "max": 960px
+    )
+);

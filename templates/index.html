@@ -1,0 +1,9 @@
+{% extends "layout/full-width.html" %}
+{% block meta %}
+<title>Home | {{ config.title }}</title>
+<meta name="description" content="{{ config.description }}">
+{% endblock meta %}
+{% block content %}
+<h1>{{ config.title }}</h1>
+{{ section.content | safe }}
+{% endblock content %}

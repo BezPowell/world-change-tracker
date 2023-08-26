@@ -1,0 +1,151 @@
+.chart {
+    --columns: 1;
+    display: inline-grid;
+    grid-template-columns: auto repeat(var(--columns), 1fr);
+    row-gap: $base-line-height / 8;
+    border: none;
+    margin: $base-line-height / 2;
+
+    &.split {
+        --columns: 2;
+    }
+}
+
+.chart {
+
+    thead,
+    tbody,
+    tr {
+        display: contents;
+    }
+
+    th,
+    td {
+        padding: $base-line-height / 4;
+        border: none;
+        line-height: 1;
+    }
+
+    caption,
+    tfoot {
+        grid-column: 1 / -1;
+    }
+
+    thead {
+        th:first-of-type {
+            grid-column: 1;
+        }
+
+        th:last-of-type {
+            grid-column: 2 / -1;
+        }
+    }
+
+    tbody {
+        th {
+            grid-column: 1;
+        }
+
+        td {
+            position: relative;
+            grid-column: -2;
+
+            &::after {
+                position: absolute;
+                content: '';
+                display: block;
+                width: var(--size);
+                background-color: var(--main-normal);
+                top: 0;
+                left: 0;
+                bottom: 0;
+                mix-blend-mode: multiply;
+            }
+
+            &.negative {
+                grid-column: 2;
+                text-align: end;
+
+                &::after {
+                    left: unset;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $ideal-line-width) {
+    .chart {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto minmax(max-content, 15rem) auto;
+        gap: $base-line-height / 8;
+    }
+
+    .chart {
+        thead {
+            th:first-of-type {
+                grid-column: 1 / -1;
+                grid-row: 3;
+            }
+
+            th:last-of-type {
+                grid-column: 1;
+                grid-row: 2;
+                text-orientation: sideways;
+                writing-mode: vertical-lr;
+            }
+        }
+
+        tbody {
+            display: grid;
+            grid-column: 2 / -1;
+            grid-row: 2;
+            grid-auto-flow: column;
+            column-gap: $base-line-height / 8;
+
+            tr {
+                display: grid;
+                grid-column: auto;
+                grid-row: auto;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(var(--columns), 1fr) auto;
+            }
+
+            th {
+                grid-column: 1;
+                grid-row: -2;
+
+                text-orientation: sideways;
+                writing-mode: vertical-lr;
+            }
+
+            td {
+                grid-column: 1;
+                grid-row: 1;
+
+                text-orientation: sideways;
+                writing-mode: vertical-lr;
+                text-align: end;
+
+                &::after {
+                    width: 100%;
+                    height: var(--size);
+                    top: unset;
+                    bottom: 0;
+                }
+
+                &.negative {
+                    grid-column: 1;
+                    grid-row: 2;
+                    text-align: start;
+
+                    &::after {
+                        bottom: unset;
+                        top: 0;
+                    }
+                }
+            }
+        }
+    }
+}

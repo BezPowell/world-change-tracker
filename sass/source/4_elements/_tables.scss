@@ -1,0 +1,42 @@
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+
+th,
+td {
+  padding: $base-line-height / 2;
+  line-height: calc(#{$base-line-height} - 2px);
+  border: 1px solid;
+}
+
+th {
+  font-weight: bold;
+}
+
+td.good {
+  color: var(--background-mid);
+  background-color: var(--text-normal);
+}
+
+td.bad {
+  color: var(--background-mid);
+  background-color: var(--main-normal);
+}
+
+td p:first-child {
+  margin-top: 0;
+}
+
+td p:last-child {
+  margin-bottom: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 0 $base-line-height;
+  border: 1px solid;
+}

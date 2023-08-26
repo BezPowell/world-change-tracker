@@ -1,0 +1,27 @@
+{
+    "start_year": 1950,
+    "end_year": 2022,
+    "output_path": "../../content/years/",
+    "sources": {
+        "population": {
+            "path": "../sources/population.csv",
+            "change": "Grown"
+        },
+        "atmosphere": {
+            "path": "../sources/atmosphere.csv",
+            "change": "Risen"
+        },
+        "temperature": {
+            "path": "../sources/temperature.csv",
+            "change": "Risen"
+        },
+        "living_planet": {
+            "path": "../sources/living_planet.csv",
+            "change": "Increased"
+        },
+        "red_list_index": {
+            "path": "../sources/red_list_index.csv",
+            "change": "Increased"
+        }
+    }
+}

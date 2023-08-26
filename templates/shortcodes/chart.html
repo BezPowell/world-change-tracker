@@ -1,0 +1,54 @@
+{% set data = load_data(path="data/sources/" ~ source ~ ".csv", format="csv") %}
+{% set attribution = load_data(path="data/sources/" ~ source ~ ".html") %}
+{% set column = column | default(value=1) %}
+{% set factor = factor | default(value=1) %}
+{% set negative = negative | default(value=false) %}
+{% set values=[] %}
+{% for value in data.records %}
+    {% if negative %}
+    {% set_global values = values | concat(with = value[column] | float) %}
+    {% else %}
+    {% set_global values = values | concat(with = value[column] | float | abs) %}
+    {% endif %}
+{% endfor %}
+{% set max_value = values | sort | last %}
+<div class="table-wrapper full-bleed">
+    <table class="chart{% if negative %} split{% endif %}">
+        <caption>{{ caption }}</caption>
+        <thead>
+            <tr>
+                <th scope="col">Year</th>
+                <th scope="col">{{ label }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for year in data.records %}
+            {% set old = year[column] | float %}
+            {% set new = max_value | float %}
+            {% if negative %}
+            {% set old_percent = old | abs %}
+            {% set percent = (old_percent / new) * 100 %}
+            {% else %}
+            {% set percent = (old / new) * 100 %}
+            {% endif %}
+            <tr>
+                <th scope="row">{{ year.0 }}</dt>
+                {% if negative and old < 0 %}
+                <td class="negative" style="--size: {{ percent }}%;">
+                    {{ old / factor | round(precision=2) }}
+                </td>
+                {% else %}
+                <td style="--size: {{ percent }}%;">
+                    {{ old / factor | round(precision=2) }}
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"><small>Source: {{ attribution | safe }}</small></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

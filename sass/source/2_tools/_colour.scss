@@ -1,0 +1,13 @@
+@use "sass:map";
+
+@mixin print_palette($scheme) {
+
+    @each $palette,
+    $variant in map.get($palette, $scheme) {
+
+        @each $variant,
+        $value in $variant {
+            --#{$palette}-#{$variant}: #{$value};
+        }
+    }
+}
