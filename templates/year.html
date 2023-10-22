@@ -8,12 +8,13 @@
 <h1>Since you were born in <span>{{ page.title }}</span></h1>
 <section>
     <h2>Population</h2>
+    {% set pop_increase = 10 * (1 + (page.extra.population.percent / 100)) | round(method="floor") | int %}
     <p>
         The world population has {{ macros::change(base_year=page.extra.year, source=page.extra.population, precision=2,
         factor=0.000000001, unit=" billion") }}<a href="#f1"><sup>1</sup></a>.
-        In more accessible terms, for every 10 people alive when you were born, there are now {{ 10 * (1 +
-        (page.extra.population.percent / 100)) | round(method="floor") | int }}.
+        In more accessible terms, for every 10 people alive when you were born, there are now {{ pop_increase}}.
     </p>
+    {{ graphics::population(number=pop_increase) }}
     <details>
         <summary>More population statistics</summary>
         <p>

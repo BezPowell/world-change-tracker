@@ -1,0 +1,22 @@
+.graphic.population {
+    div {
+        --columns: 5;
+        display: grid;
+        grid-template-columns: repeat(var(--columns), auto);
+        gap: 3px;
+        justify-content: center;
+        margin-bottom: 3px;
+
+        @media screen and (min-width: $breakpoint-med) {
+            --columns: 10;
+        }
+    }
+
+    .old {
+        opacity: 0.8;
+    }
+
+    img {
+        width: 100%;
+    }
+}
