@@ -37,6 +37,6 @@ td p:last-child {
 
 .table-wrapper {
   overflow-x: auto;
-  margin: 0 $base-line-height;
+  margin: $base-line-height 0;
   border: 1px solid;
 }
