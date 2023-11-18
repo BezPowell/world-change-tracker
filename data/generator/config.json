@@ -15,6 +15,10 @@
             "path": "../sources/temperature.csv",
             "change": "Risen"
         },
+        "ozone": {
+            "path": "../sources/ozone.csv",
+            "change": "Grown"
+        },
         "living_planet": {
             "path": "../sources/living_planet.csv",
             "change": "Increased"

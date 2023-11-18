@@ -3,5 +3,10 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"rust-analyzer.linkedProjects": [
+			"data/generator/Cargo.toml"
+		]
+	},
 }

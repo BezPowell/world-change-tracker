@@ -12,6 +12,7 @@ pub struct Year {
     living_planet: Comparison<f32>,
     temperature: Comparison<f32>,
     red_list_index: Comparison<f32>,
+    ozone: Comparison<f32>,
 }
 
 impl Year {
@@ -25,6 +26,7 @@ impl Year {
         living_planet: Comparison<f32>,
         temperature: Comparison<f32>,
         red_list_index: Comparison<f32>,
+        ozone: Comparison<f32>,
     ) -> Self {
         Self {
             year,
@@ -36,6 +38,7 @@ impl Year {
             living_planet,
             temperature,
             red_list_index,
+            ozone,
         }
     }
 }

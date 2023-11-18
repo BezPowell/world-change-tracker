@@ -23,10 +23,14 @@ All atmospheric carbon data comes from the Mauna Loa Observatory, Hawaii. <q cit
 
 Data about past temperatures comes from the NOAA National Centers for Environmental information, Climate at a Glance which <q cite="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/">provides global-scale temperature information using data from NOAA's Global Surface Temperature Analysis (NOAAGlobalTemp), which uses comprehensive data collections of increased global coverage over land (Global Historical Climatology Network-Monthly) and ocean (Extended Reconstructed Sea Surface Temperature) surfaces. The tool provides near real-time analysis of monthly and annual temperatures for the globe and is intended for the study of climate variability and change. Data is provided globally, by hemisphere, and by land and ocean surface components. The interactive mapping tool allows analysis of the spatial patterns of global temperature anomalies and regional temperature analysis. Recent data are preliminary and may be modified after appropriate quality control has been performed.</q>
 
+{{ chart(source="ozone", caption="Mean ozone hole size for 07 September to 13 October per year", label="Mean Ozone Hole Size (million ㎢)") }}
+
+Data on the global ozone hole size comes from NASA Ozone Watch. The global ozone hole <q cite="https://ozonewatch.gsfc.nasa.gov/facts/hole_SH.html">is not technically a “hole” where no ozone is present, but is actually a region of exceptionally depleted ozone in the stratosphere over the Antarctic that happens at the beginning of Southern Hemisphere spring (August–October).</q>.
+
 ## Biodiversity
 {{ chart(source="living_planet", caption="Living Planet Index per year.", label="Living Planet Index") }}
 
-Biodiversity data is taken from The Living Planet Index (LPI), which <q cite="https://www.livingplanetindex.org/">is a measure of the state of the world's biological diversity based on population trends of vertebrate species from terrestrial, freshwater and marine habitats. The LPI was adopted by the Convention of Biological Diversity (CBD) as an indicator of progress towards its 2011-2020 targets and can play an important role in monitoring progress towards the post-2020 goals and targets negotiated at COP15.</q>
+The Living Planet Index (LPI) <q cite="https://www.livingplanetindex.org/">is a measure of the state of the world's biological diversity based on population trends of vertebrate species from terrestrial, freshwater and marine habitats. The LPI was adopted by the Convention of Biological Diversity (CBD) as an indicator of progress towards its 2011-2020 targets and can play an important role in monitoring progress towards the post-2020 goals and targets negotiated at COP15.</q>
 
 {{ chart(source="red_list_index", caption="IUCN Red List Index of species survival per year.", label="Red List Index") }}
 

@@ -6,6 +6,7 @@ use crate::{
         data_source::DataSource,
         data_type::DataType,
         living_planet::{LivingPlanet, LivingPlanetVariant},
+        ozone::Ozone,
         population::{Population, PopulationVariant},
         red_list_index::{RedListIndex, RedListVariant},
         temperature::{Temperature, TemperatureVariant},
@@ -25,6 +26,7 @@ pub struct App {
     temperature: DataSource<f32>,
     living_planet: DataSource<f32>,
     red_list_index: DataSource<f32>,
+    ozone: DataSource<f32>,
 }
 
 impl App {
@@ -72,6 +74,11 @@ impl App {
             sources.red_list_index.change,
         );
 
+        let ozone = DataSource::new(
+            Ozone::deserialize(&sources.ozone.path, crate::data::ozone::OzoneVariant::Ozone)?,
+            sources.ozone.change,
+        );
+
         Ok(App {
             config,
             population,
@@ -82,6 +89,7 @@ impl App {
             temperature,
             living_planet,
             red_list_index,
+            ozone,
         })
     }
 
@@ -102,6 +110,7 @@ impl App {
 
             let carbon = self.carbon.compare(year);
             let temperature = self.temperature.compare(year);
+            let ozone = self.ozone.compare(year);
 
             let living_planet = self.living_planet.compare(year);
             let red_list_index = self.red_list_index.compare(year);
@@ -116,6 +125,7 @@ impl App {
                 living_planet,
                 temperature,
                 red_list_index,
+                ozone,
             );
 
             templates.push(Frontmatter::new(year, extra))

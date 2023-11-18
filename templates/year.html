@@ -40,22 +40,30 @@
         Levels of atmospheric carbon have {{ macros::change(base_year=page.extra.year, source=page.extra.carbon,
         precision=0, unit="ppm") }}<a href="#f2"><sup>2</sup></a>.
     </p>
-    <p>
-        The global temperature anomaly (compared to the 1901-2000 average) has {{
-        macros::change(base_year=page.extra.year, source=page.extra.temperature, precision=2, unit="°C", absolute=true)
-        }}<a href="#f3"><sup>3</sup></a>.
-    </p>
+    <details>
+        <summary>More atmosphere statistics</summary>
+        <p>
+            During the same time period the global temperature anomaly (compared to the 1901-2000 average) has {{
+            macros::change(base_year=page.extra.year, source=page.extra.temperature, precision=2, unit="°C", absolute=true)
+            }}<a href="#f3"><sup>3</sup></a>.
+        </p>
+        <p>
+            The hole in the ozone layer has  {{
+            macros::change(base_year=page.extra.year, source=page.extra.ozone, precision=2, unit=" million ㎢")
+            }}<a href="#f4"><sup>4</sup></a>.
+        </p>
+    </details>
 </section>
 <section>
     <h2>Biodiversity</h2>
     <p>
         The Living Planet Index has {{ macros::change(base_year=page.extra.year, source=page.extra.living_planet,
-        precision=2) }}<a href="#f4"><sup>4</sup></a>.
+        precision=2) }}<a href="#f5"><sup>5</sup></a>.
     </p>
     <p>
         The IUCN Red List Index of species survival has {{ macros::change(base_year=page.extra.year,
         source=page.extra.red_list_index,
-        precision=2) }}<a href="#f5"><sup>5</sup></a>. The index is derived from the IUCN Red List of Threatened
+        precision=2) }}<a href="#f6"><sup>6</sup></a>. The index is derived from the IUCN Red List of Threatened
         Species; a value of 1.0 equates to all species qualifying as Least
         Concern (i.e., not expected to become Extinct in the near future), whereas a value of 0 equates to all
         species having gone Extinct.

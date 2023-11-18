@@ -9,6 +9,7 @@ pub struct Sources {
     pub temperature: Source,
     pub living_planet: Source,
     pub red_list_index: Source,
+    pub ozone: Source,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
