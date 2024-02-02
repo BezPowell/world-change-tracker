@@ -1,5 +1,8 @@
 {% import "macros/macros.html" as macros %}
 {% import "macros/graphics.html" as graphics %}
+{% import "macros/change.html" as change %}
+{% set config = load_data(path="data/generator/config.json") %}
+{% set changes = config.changes %}
 <!doctype html>
 <html lang="en">
 

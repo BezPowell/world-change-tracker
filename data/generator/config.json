@@ -1,13 +1,12 @@
 {
     "start": 1950,
-    "end": 2022,
+    "end": 2023,
     "output": "../../content/years/",
     "sources": [
         {
             "name": "population",
             "path": "../sources/population.csv",
             "attribution": "../sources/population.html",
-            "change": "Grown",
             "columns": [
                 {
                     "name": "population",
@@ -87,5 +86,19 @@
                 }
             ]
         }
-    ]
+    ],
+    "changes": {
+        "grow_shrink": [
+            "grown",
+            "shrunk"
+        ],
+        "rise_fall": [
+            "risen",
+            "fallen"
+        ],
+        "increase_decrease": [
+            "increased",
+            "decreased"
+        ]
+    }
 }

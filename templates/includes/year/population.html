@@ -1,0 +1,14 @@
+<p>
+    The world population has {{ 
+        change::rise_fall(change=changes["grow_shrink"], data=data.population) 
+    }} by {{ change::change(data=data.population) }}, {{ 
+        change::increase(
+            source=data.population,
+            year=page.extra.year,
+            factor=0.000000001,
+            precision=2,
+            unit=" billion"
+        ) 
+    }}{{ macros::footnote(number=1) }}.
+    In more accessible terms, for every 10 people alive when you were born, there are now {{ pop_increase }}.
+</p>

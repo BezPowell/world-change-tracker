@@ -8,6 +8,13 @@ use std::{
 };
 
 #[derive(Debug, Serialize)]
+struct Index {
+    title: String,
+    page_template: String,
+    paginate_by: u32,
+}
+
+#[derive(Debug, Serialize)]
 struct Page {
     title: String,
     extra: Extra,
@@ -20,42 +27,57 @@ struct Extra {
 
 pub fn write_data(config: &Config) -> Result<(), Box<dyn Error>> {
     let tables = config.data()?;
-    let keys: Vec<u32> = (config.start()..=config.end()).collect();
+    let keys: Vec<u32> = (config.start()..config.end()).collect();
+    let end = &config.end();
 
-    if let Some(end) = keys.last() {
-        for key in keys.iter() {
-            // Try create directory
-            let mut path = config.output().clone();
-            path.push(key.to_string());
-            fs::create_dir_all(&path)?;
+    for key in keys.iter() {
+        // Try create directory
+        let mut path = config.output().clone();
+        path.push(key.to_string());
+        fs::create_dir_all(&path)?;
 
-            // Compare data
-            let mut out_data = HashMap::new();
-            for (_source, table) in &tables {
-                for field in table.headers() {
-                    let value = table.get_closest_match(key, field).unwrap();
-                    let end = table.get_closest_match(end, field).unwrap();
-                    let compare = Compare::compare(&value, &end);
+        // Compare data
+        let mut out_data = HashMap::new();
+        for (_source, table) in &tables {
+            for field in table.headers() {
+                let value = table.get_closest_match(key, field).unwrap();
+                let end = table.get_closest_match(end, field).unwrap();
+                let compare = Compare::compare(&value, &end);
 
-                    out_data.insert(field, compare);
-                }
+                out_data.insert(field, compare);
             }
-
-            let mut out_path = path.clone();
-            out_path.push("data.json");
-
-            let json = serde_json::to_string(&out_data)?;
-            let mut out_file = File::create(&out_path)?;
-            write!(out_file, "{}", json)?;
         }
+
+        let mut out_path = path.clone();
+        out_path.push("data.json");
+
+        let json = serde_json::to_string(&out_data)?;
+        let mut out_file = File::create(&out_path)?;
+        write!(out_file, "{}", json)?;
     }
 
     Ok(())
 }
 
 pub fn write_pages(config: &Config) -> Result<(), Box<dyn Error>> {
-    let keys: Vec<u32> = (config.start()..=config.end()).collect();
+    let keys: Vec<u32> = (config.start()..config.end()).collect();
 
+    // Generate Index
+    let index = Index {
+        title: "Years".to_string(),
+        page_template: "year.html".to_string(),
+        paginate_by: 20,
+    };
+    let toml = toml::to_string(&index)?;
+
+    // Write to file
+    let mut path = config.output().clone();
+    fs::create_dir_all(&path)?;
+    path.push("_index.md");
+    let mut out_file = File::create(&path)?;
+    write!(out_file, "+++\n{}+++", toml)?;
+
+    // The individual years
     for key in keys.iter() {
         // Try create directory
         let mut path = config.output().clone();

@@ -1,0 +1,13 @@
+<li>
+    The median age has {{ 
+        change::rise_fall(change=changes["increase_decrease"], data=data.median_age) 
+    }} by {{
+        change::change(data=data.median_age, absolute=true)
+    }} years, {{ 
+        change::increase(
+            source=data.median_age,
+            year=page.extra.year
+        ) 
+    }}.
+    This is the age at which you could split the population evenly, with approximately the same number of people older than the threshold than there are those who are younger.
+</li>
