@@ -1,20 +1,13 @@
-mod app;
-mod comparison;
-mod config;
-mod data;
-mod frontmatter;
+use generics::{write_data, write_pages, Config};
+use std::fs;
 
-use app::App;
-use std::error::Error;
+fn main() {
+    let config = Config::load("config.json").unwrap();
 
-fn main() -> Result<(), Box<dyn Error>> {
-    let app = App::new("config.json")?;
-    let config = app.config();
-    let templates = app.build_templates();
+    // Clear existing content if exists
+    let _ = fs::remove_dir_all(config.output());
 
-    for template in templates {
-        template.write(&config.output_path)?;
-    }
-
-    Ok(())
+    // Write new data.
+    write_data(&config).expect("Unable to write data.");
+    write_pages(&config).expect("Unable to write pages.");
 }

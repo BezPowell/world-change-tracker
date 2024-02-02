@@ -1,0 +1,29 @@
+{
+    "start": 1950,
+    "end": 1960,
+    "output": "out",
+    "sources": [
+        {
+            "name": "integer",
+            "path": "integer.csv",
+            "attribution": "data.html",
+            "columns": [
+                {
+                    "name": "integer",
+                    "data_type": "Integer"
+                }
+            ]
+        },
+        {
+            "name": "float",
+            "path": "float.csv",
+            "attribution": "data.html",
+            "columns": [
+                {
+                    "name": "float",
+                    "data_type": "Float"
+                }
+            ]
+        }
+    ]
+}
