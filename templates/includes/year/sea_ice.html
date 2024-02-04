@@ -1,0 +1,12 @@
+<p>
+    The monthly average sea ice extent has {{ 
+        change::rise_fall(change=changes["increase_decrease"], data=data.sea_ice_extent) 
+    }} by {{ change::change(data=data.sea_ice_extent) }}, {{ 
+        change::increase(
+            source=data.sea_ice_extent,
+            year=page.extra.year,
+            precision=2,
+            unit=" million ㎢"
+        ) 
+    }}{{ macros::footnote(number=7) }}.
+</p>

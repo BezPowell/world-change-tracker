@@ -85,6 +85,26 @@
                     "data_type": "Float"
                 }
             ]
+        },
+        {
+            "name": "sea_ice",
+            "path": "../sources/sea_ice.csv",
+            "attribution": "../sources/sea_ice.html",
+            "change": "Increased",
+            "columns": [
+                {
+                    "name": "sea_ice_extent_nh",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "sea_ice_extent_sh",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "sea_ice_extent",
+                    "data_type": "Float"
+                }
+            ]
         }
     ],
     "changes": {
