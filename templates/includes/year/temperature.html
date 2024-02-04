@@ -1,0 +1,18 @@
+<li>
+    The global temperature anomaly (compared to the 1901-2000 average) has {{ 
+        change::rise_fall(change=changes["rise_fall"], data=data.temperature) 
+    }} by {{ 
+        change::change(
+            data=data.temperature,
+            absolute=true,
+            precision=2
+        ) 
+    }}°C, {{ 
+        change::increase(
+            source=data.temperature,
+            year=page.extra.year,
+            precision=2,
+            unit="°C"
+        ) 
+    }}{{ macros::footnote(number=3) }}.
+</li>

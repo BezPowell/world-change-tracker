@@ -33,6 +33,6 @@
     {{ config.sources[source] | safe }}
 {% endmacro source %}
 
-{% macro footnote(number) %}
+{%- macro footnote(number) -%}
     <a href="#f{{ number }}"><sup>{{ number }}</sup></a>
-{% endmacro footnote  %}
+{%- endmacro footnote  -%}

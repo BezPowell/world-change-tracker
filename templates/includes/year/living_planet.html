@@ -1,0 +1,12 @@
+<p>
+    The Living Planet Index has {{ 
+        change::rise_fall(change=changes["increase_decrease"], data=data.lpi) 
+    }} by {{ change::change(data=data.lpi) }}, {{ 
+        change::increase(
+            source=data.lpi,
+            year=page.extra.year,
+            precision=2
+        ) 
+    }}{{ macros::footnote(number=5) }}.
+    The Living Planet Index (LPI) is a measure of the state of the world's biological diversity based on population trends of vertebrate species from terrestrial, freshwater and marine habitats.
+</p>

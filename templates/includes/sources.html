@@ -1,6 +1,8 @@
+{% set sources = config.sources %}
 <ol>
-    {% for source, value in sources.sources %}
-    {%- set attribution = load_data(path="data/sources/" ~ source ~ ".html") -%}
+    {% for source in sources %}
+    {% set name = source.name %}
+    {%- set attribution = load_data(path="data/sources/" ~ name ~ ".html") -%}
     <li id="f{{ loop.index }}">
         {{ attribution | safe }}
     </li>

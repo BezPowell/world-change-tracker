@@ -23,4 +23,34 @@
         </ul>
     </details>
 </section>
+
+<section>
+    <h2>Atmosphere</h2>
+    {% include "includes/year/carbon.html" %}
+
+    <details>
+        <summary>More atmosphere statistics</summary>
+        <ul>
+            {% include "includes/year/temperature.html" %}
+            {% include "includes/year/ozone.html" %}
+        </ul>
+    </details>
+</section>
+
+<section>
+    <h2>Biodiversity</h2>
+    {% include "includes/year/living_planet.html" %}
+
+    <details>
+        <summary>More biodiversity statistics</summary>
+        <ul>
+            {% include "includes/year/rli.html" %}
+        </ul>
+    </details>
+</section>
+
+<section>
+    <h2>Sources</h2>
+    {% include "includes/sources.html" %}
+</section>
 {% endblock content %}
