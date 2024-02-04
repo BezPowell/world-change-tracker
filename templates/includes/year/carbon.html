@@ -1,0 +1,11 @@
+<p>
+    Levels of atmospheric carbon have {{ 
+        change::rise_fall(change=changes["rise_fall"], data=data.carbon) 
+    }} by {{ change::change(data=data.carbon) }}, {{ 
+        change::increase(
+            source=data.carbon,
+            year=page.extra.year,
+            unit="ppm"
+        ) 
+    }}{{ macros::footnote(number=2) }}.
+</p>

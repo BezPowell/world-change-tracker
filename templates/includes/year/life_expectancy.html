@@ -1,0 +1,12 @@
+<li>
+    Life expectancy at birth has {{ 
+        change::rise_fall(change=changes["rise_fall"], data=data.life_expectancy) 
+    }} by {{
+        change::change(data=data.life_expectancy, absolute=true)
+    }} years, {{ 
+        change::increase(
+            source=data.life_expectancy,
+            year=page.extra.year
+        ) 
+    }}{{ macros::footnote(number=1) }}.
+</li>

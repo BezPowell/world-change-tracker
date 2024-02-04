@@ -1,0 +1,12 @@
+<li>
+    The hole in the ozone layer has {{ 
+        change::rise_fall(change=changes["grow_shrink"], data=data.ozone) 
+    }} by {{ change::change(data=data.ozone) }}, {{ 
+        change::increase(
+            source=data.ozone,
+            year=page.extra.year,
+            precision=2,
+            unit=" million ㎢"
+        ) 
+    }}{{ macros::footnote(number=4) }}.
+</li>

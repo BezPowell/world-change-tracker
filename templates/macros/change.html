@@ -1,0 +1,28 @@
+{% macro base_year(page, source) %}
+    {%- if page != source %}
+        in {{ source }} (the closest year on record)
+    {%- endif -%}
+{% endmacro base_year %}
+
+{%- macro increase(source, year, factor=1, precision=0, unit="") -%}
+    {%- set old = source.old.value * factor | round(precision=precision) -%}
+    {%- set new = source.new.value * factor | round(precision=precision) -%}
+    {%- set year = change::base_year(page=year, source=source.old.key) -%}
+    from {{ old }}{{ unit }}{{ year }} to {{ new }}{{ unit }}
+{%- endmacro increase -%}
+
+{% macro rise_fall(change, data) %}
+{%- if data.old.value < data.new.value -%}
+    {{ change[0] }}
+{%- else  -%}
+    {{ change[1] }}
+{%- endif -%}
+{% endmacro rise_fall %}
+
+{%- macro change(data, absolute=false, precision=0) -%}
+{%- if absolute -%}
+    {{ data.absolute | round(precision=precision, method="floor") | abs }}
+{%- else  -%}
+    {{ data.percent | round(precision=precision, method="floor") | abs }}%
+{%- endif -%}
+{%- endmacro change -%}

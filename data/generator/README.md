@@ -1,2 +1,0 @@
-# World Change Tracker Generator
-This is the content generator for World Change Tracker. It takes in data in the form of csv files, and outputs markdown content that is used by zola to build the main site.

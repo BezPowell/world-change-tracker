@@ -1,5 +1,4 @@
-mod config;
-mod source;
-
-pub use config::Config;
-pub use source::Source;
+pub mod config;
+pub mod data_type;
+pub mod schema;
+pub mod column;

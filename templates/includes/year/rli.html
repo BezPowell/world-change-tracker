@@ -1,0 +1,16 @@
+<li>
+    The IUCN Red List Index of species survival has {{ 
+        change::rise_fall(change=changes["increase_decrease"], data=data.rli) 
+    }} by {{ 
+        change::change(
+            data=data.rli
+        ) 
+    }}°C, {{ 
+        change::increase(
+            source=data.rli,
+            year=page.extra.year,
+            precision=2
+        ) 
+    }}{{ macros::footnote(number=6) }}.
+    The index is derived from the IUCN Red List of Threatened Species; a value of 1.0 equates to all species qualifying as Least Concern (i.e., not expected to become Extinct in the near future), whereas a value of 0 equates to all species having gone Extinct.
+</li>

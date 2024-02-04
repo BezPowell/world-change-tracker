@@ -1,54 +1,38 @@
 {% macro link(url, text) %}
-{% if url == current_url %}
-<a href="{{ url }}" aria-current="page">
-    {{ text }}
-</a>
-{% else %}
-<a href="{{ url }}">
-    {{ text }}
-</a>
-{% endif %}
+    {% if url == current_url %}
+        <a href="{{ url }}" aria-current="page">
+            {{ text }}
+        </a>
+    {% else %}
+        <a href="{{ url }}">
+            {{ text }}
+        </a>
+    {% endif %}
 {% endmacro link %}
 
 {% macro pagination(paginator) %}
-{% if paginator.number_pagers > 1 %}
-<nav aria-label="pagination">
-    <ul>
-        {% if paginator.previous %}
-        <li>
-            <a href="{{ paginator.previous }}">Previous page</a>
-        </li>
-        {% endif %}
-        {% if paginator.next %}
-        <li>
-            <a href="{{ paginator.next }}">Next page</a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
-{% endif %}
+    {% if paginator.number_pagers > 1 %}
+    <nav aria-label="pagination">
+        <ul>
+            {% if paginator.previous %}
+            <li>
+                <a href="{{ paginator.previous }}">Previous page</a>
+            </li>
+            {% endif %}
+            {% if paginator.next %}
+            <li>
+                <a href="{{ paginator.next }}">Next page</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 {% endmacro pagination %}
 
 {% macro source(source) %}
-{{ config.sources[source] | safe }}
+    {{ config.sources[source] | safe }}
 {% endmacro source %}
 
-{% macro change(base_year, source, precision=0, factor=1, unit="", absolute=false) %}
-{%- if source.old.year == base_year -%}
-{%- set start_year = "" -%}
-{%- else -%}
-{% set start_year = " in " ~ source.old.year ~ " (the closest year on record)" %}
-{%- endif -%}
-{%- if absolute -%}
-{%- set change = (source.new.value - source.old.value) * factor | round(precision=precision) -%}
-{%- set change = change ~ unit -%}
-{%- else -%}
-{%- set change = source.percent | round | abs | int -%}
-{%- set change = change ~ "%" -%}
-{%- endif -%}
-{{ source.change }} by {{ change }}, from {{
-source.old.value * factor | round(precision=precision) }}{{ unit ~ start_year }} to {{
-source.new.value *
-factor |
-round(precision=precision) }}{{ unit }}
-{%- endmacro source_year %}
+{%- macro footnote(number) -%}
+    <a href="#f{{ number }}"><sup>{{ number }}</sup></a>
+{%- endmacro footnote  -%}

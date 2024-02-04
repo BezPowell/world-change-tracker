@@ -1,0 +1,12 @@
+<li>
+    The rate of infant mortality (the number of deaths per 1,000 births) has {{ 
+        change::rise_fall(change=changes["rise_fall"], data=data.infant_mortality) 
+    }} by {{
+        change::change(data=data.infant_mortality)
+    }}, {{ 
+        change::increase(
+            source=data.infant_mortality,
+            year=page.extra.year
+        ) 
+    }}{{ macros::footnote(number=1) }}.
+</li>

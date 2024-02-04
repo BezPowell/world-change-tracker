@@ -35,3 +35,9 @@ The Living Planet Index (LPI) <q cite="https://www.livingplanetindex.org/">is a 
 {{ chart(source="red_list_index", caption="IUCN Red List Index of species survival per year.", label="Red List Index") }}
 
 The IUCN Red List Index is derived from the Red List of Threatened Species and shows <q cite="https://www.iucnredlist.org/assessment/red-list-index">trends in the status of groups of species based only on genuine improvements or deteriorations in status of sufficient magnitude to qualify species for listing in more threatened or less threatened Red List Categories</q>. A value of 1.0 here equates to all species qualifying as Least Concern (i.e., not expected to become Extinct in the near future), whereas a value of 0 equates to all species having gone Extinct.
+
+## Surface
+{{ chart(source="sea_ice", caption="Northern hemisphere sea ice extent per year.", label="Average monthly sea ice extent (million ㎢)", column=1) }}
+{{ chart(source="sea_ice", caption="Southern hemispheresea ice extent per year.", label="Average monthly sea ice extent (million ㎢)", column=3) }}
+
+Sea ice data are from the [NSIDC Sea Ice Index](http://nsidc.org/data/seaice_index), using data from the Defense Meteorological Satellite Program (DMSP) series of passive microwave remote sensing instruments. The Sea Ice Index is based on the data sets, [Near-Real-time DMSP SSM/I-SSMIS Daily Polar Gridded Sea Ice Concentrations](http://nsidc.org/data/nsidc-0081), and the NASA-produced [Sea Ice Concentrations from Nimbus-7 SMMR and DMSP SSM/I Passive Microwave Data](http://nsidc.org/data/nsidc-0051).

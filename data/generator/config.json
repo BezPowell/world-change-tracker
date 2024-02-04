@@ -1,31 +1,124 @@
 {
-    "start_year": 1950,
-    "end_year": 2022,
-    "output_path": "../../content/years/",
-    "sources": {
-        "population": {
+    "start": 1950,
+    "end": 2023,
+    "output": "../../content/years/",
+    "sources": [
+        {
+            "name": "population",
             "path": "../sources/population.csv",
-            "change": "Grown"
+            "attribution": "../sources/population.html",
+            "columns": [
+                {
+                    "name": "population",
+                    "data_type": "Integer"
+                },
+                {
+                    "name": "life_expectancy",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "infant_mortality",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "median_age",
+                    "data_type": "Float"
+                }
+            ]
         },
-        "atmosphere": {
+        {
+            "name": "atmosphere",
             "path": "../sources/atmosphere.csv",
-            "change": "Risen"
+            "attribution": "../sources/atmosphere.html",
+            "change": "Risen",
+            "columns": [
+                {
+                    "name": "carbon",
+                    "data_type": "Float"
+                }
+            ]
         },
-        "temperature": {
+        {
+            "name": "temperature",
             "path": "../sources/temperature.csv",
-            "change": "Risen"
+            "attribution": "../sources/temperature.html",
+            "change": "Risen",
+            "columns": [
+                {
+                    "name": "temperature",
+                    "data_type": "Float"
+                }
+            ]
         },
-        "ozone": {
+        {
+            "name": "ozone",
             "path": "../sources/ozone.csv",
-            "change": "Grown"
+            "attribution": "../sources/ozone.html",
+            "change": "Grown",
+            "columns": [
+                {
+                    "name": "ozone",
+                    "data_type": "Float"
+                }
+            ]
         },
-        "living_planet": {
+        {
+            "name": "living_planet",
             "path": "../sources/living_planet.csv",
-            "change": "Increased"
+            "attribution": "../sources/living_planet.html",
+            "change": "Increased",
+            "columns": [
+                {
+                    "name": "lpi",
+                    "data_type": "Float"
+                }
+            ]
         },
-        "red_list_index": {
+        {
+            "name": "red_list_index",
             "path": "../sources/red_list_index.csv",
-            "change": "Increased"
+            "attribution": "../sources/red_list_index.html",
+            "change": "Increased",
+            "columns": [
+                {
+                    "name": "rli",
+                    "data_type": "Float"
+                }
+            ]
+        },
+        {
+            "name": "sea_ice",
+            "path": "../sources/sea_ice.csv",
+            "attribution": "../sources/sea_ice.html",
+            "change": "Increased",
+            "columns": [
+                {
+                    "name": "sea_ice_extent_nh",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "sea_ice_extent_sh",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "sea_ice_extent",
+                    "data_type": "Float"
+                }
+            ]
         }
+    ],
+    "changes": {
+        "grow_shrink": [
+            "grown",
+            "shrunk"
+        ],
+        "rise_fall": [
+            "risen",
+            "fallen"
+        ],
+        "increase_decrease": [
+            "increased",
+            "decreased"
+        ]
     }
 }
