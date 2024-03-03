@@ -6,7 +6,8 @@
 	],
 	"settings": {
 		"rust-analyzer.linkedProjects": [
-			"data/generator/Cargo.toml"
+			"data/generator/Cargo.toml",
+			"./data/generator/Cargo.toml"
 		]
 	},
 }

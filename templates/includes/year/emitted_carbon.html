@@ -1,0 +1,11 @@
+<p>
+    Annual carbon emissions have {{ 
+        change::rise_fall(change=changes["rise_fall"], data=data.total_co2_emissions) 
+    }} by {{ change::change(data=data.total_co2_emissions) }}, {{ 
+        change::increase(
+            source=data.total_co2_emissions,
+            year=page.extra.year,
+            unit=" billion tonnes"
+        ) 
+    }}{{ macros::footnote(number=9) }}.
+</p>

@@ -1,0 +1,13 @@
+<p>
+    The T10/B50 ratio of income inequality has {{ 
+        change::rise_fall(change=changes["rise_fall"], data=data.ratio) 
+    }} {{ 
+        change::increase(
+            source=data.ratio,
+            year=page.extra.year,
+            unit="x"
+        ) 
+    }}{{ macros::footnote(number=8) }}.
+    This is the ratio between the average earnings of the top 10% highest earners,
+    and the average income of the bottom 50%.
+</p>

@@ -26,13 +26,14 @@
 
 <section>
     <h2>Atmosphere</h2>
-    {% include "includes/year/carbon.html" %}
+    {% include "includes/year/emitted_carbon.html" %}
 
     <details>
         <summary>More atmosphere statistics</summary>
         <ul>
             {% include "includes/year/temperature.html" %}
             {% include "includes/year/ozone.html" %}
+            {% include "includes/year/atmospheric_carbon.html" %}
         </ul>
     </details>
 </section>
@@ -52,6 +53,11 @@
 <section>
     <h2>Surface</h2>
     {% include "includes/year/sea_ice.html" %}
+</section>
+
+<section>
+    <h2>Society</h2>
+    {% include "includes/year/income_inequality.html" %}
 </section>
 
 <section>

@@ -30,7 +30,6 @@
             "name": "atmosphere",
             "path": "../sources/atmosphere.csv",
             "attribution": "../sources/atmosphere.html",
-            "change": "Risen",
             "columns": [
                 {
                     "name": "carbon",
@@ -42,7 +41,6 @@
             "name": "temperature",
             "path": "../sources/temperature.csv",
             "attribution": "../sources/temperature.html",
-            "change": "Risen",
             "columns": [
                 {
                     "name": "temperature",
@@ -54,7 +52,6 @@
             "name": "ozone",
             "path": "../sources/ozone.csv",
             "attribution": "../sources/ozone.html",
-            "change": "Grown",
             "columns": [
                 {
                     "name": "ozone",
@@ -66,7 +63,6 @@
             "name": "living_planet",
             "path": "../sources/living_planet.csv",
             "attribution": "../sources/living_planet.html",
-            "change": "Increased",
             "columns": [
                 {
                     "name": "lpi",
@@ -78,7 +74,6 @@
             "name": "red_list_index",
             "path": "../sources/red_list_index.csv",
             "attribution": "../sources/red_list_index.html",
-            "change": "Increased",
             "columns": [
                 {
                     "name": "rli",
@@ -90,7 +85,6 @@
             "name": "sea_ice",
             "path": "../sources/sea_ice.csv",
             "attribution": "../sources/sea_ice.html",
-            "change": "Increased",
             "columns": [
                 {
                     "name": "sea_ice_extent_nh",
@@ -102,6 +96,36 @@
                 },
                 {
                     "name": "sea_ice_extent",
+                    "data_type": "Float"
+                }
+            ]
+        },
+        {
+            "name": "income_inequality",
+            "path": "../sources/income_inequality.csv",
+            "attribution": "../sources/income_inequality.html",
+            "columns": [
+                {
+                    "name": "p90p100",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "p0p50",
+                    "data_type": "Float"
+                },
+                {
+                    "name": "ratio",
+                    "data_type": "Float"
+                }
+            ]
+        },
+        {
+            "name": "emissions",
+            "path": "../sources/emissions.csv",
+            "attribution": "../sources/emissions.html",
+            "columns": [
+                {
+                    "name": "total_co2_emissions",
                     "data_type": "Float"
                 }
             ]
